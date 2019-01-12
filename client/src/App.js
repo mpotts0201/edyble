@@ -5,10 +5,20 @@ import { BrowserRouter, Switch, Redirect, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Login from './components/SignUpLogin/Login'
 import axios from 'axios'
+import { saveAuthTokens, setAxiosDefaults, removeTokens, userIsLoggedIn } from './utils/SessionHeaderUtils'
 class App extends Component {
 
   state = {
     signedIn: false
+  }
+
+
+  componentDidMount() {
+    const signedIn = userIsLoggedIn()
+    if (signedIn) {
+      setAxiosDefaults()
+    }
+    this.setState({ signedIn })
   }
 
   signIn = async (email, password) => {
@@ -18,10 +28,16 @@ class App extends Component {
     }
     try {
       const res = await axios.post('/auth/sign_in', payload)
-      console.log(res)
+      saveAuthTokens(res.headers)
+      this.setState({ signedIn: true })
     } catch (error) {
       console.log(error)
     }
+  }
+
+  signOut = () => {
+    removeTokens()
+    this.setState({ signedIn: false })
   }
 
 
@@ -39,7 +55,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-
+          <button onClick={this.signOut}>Sign Out</button>
         </header>
 
         <BrowserRouter>
