@@ -17,3 +17,6 @@
 
 # Production 
 /public
+
+# API keys
+.env
