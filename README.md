@@ -1,24 +1,12 @@
-# README
+# edyble
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is just a little something I've created to look up recipes and nutritional information, using the EDAMAM API.
 
-Things you may want to cover:
 
-* Ruby version
+* Deployment on Heroku 
 
-* System dependencies
+* User authentication: 
+devise, omniauth, and devise_token_auth
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://boiling-fjord-17633.herokuapp.com/
