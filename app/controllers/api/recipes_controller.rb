@@ -11,4 +11,8 @@ class Api::RecipesController < ApplicationController
         render json: @res
     end
 
+    def landing
+        render file: '../../../client/public/index.html'
+    end
+
 end
