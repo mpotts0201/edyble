@@ -6,6 +6,9 @@ import Home from './components/Home'
 import Login from './components/SignUpLogin/Login'
 import axios from 'axios'
 import { saveAuthTokens, setAxiosDefaults, removeTokens, userIsLoggedIn } from './utils/SessionHeaderUtils'
+import NotFound from './components/NotFound'
+
+
 class App extends Component {
 
   state = {
@@ -63,6 +66,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/login' render={LoginWrapper} />
               <Route exact path='/' render={HomeWrapper} />
+              <Route component={NotFound} />
             </Switch>
             {this.state.signedIn ? <Redirect to='/' /> : <Redirect to='/login' />}
           </div>
