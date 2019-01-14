@@ -1,5 +1,4 @@
 require 'httparty'
-require 'dotenv'
 
 
 class Api::RecipesController < ApplicationController
