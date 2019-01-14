@@ -55,11 +55,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <button onClick={this.signOut}>Sign Out</button>
         </header>
 
         <BrowserRouter>
           <div>
+            <button onClick={this.signOut}>Sign Out</button>
             <Switch>
               <Route exact path='/login' render={LoginWrapper} />
               <Route exact path='/' render={HomeWrapper} />
