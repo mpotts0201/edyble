@@ -61,10 +61,10 @@ class App extends Component {
           <div>
             <button onClick={this.signOut}>Sign Out</button>
             <Switch>
-              <Route exact path='/#/login' render={LoginWrapper} />
+              <Route exact path='/login' render={LoginWrapper} />
               <Route exact path='/' render={HomeWrapper} />
             </Switch>
-            {this.state.signedIn ? <Redirect to='/' /> : <Redirect to='/#/login' />}
+            {this.state.signedIn ? <Redirect to='/' /> : <Redirect to='/login' />}
           </div>
         </BrowserRouter>
 
